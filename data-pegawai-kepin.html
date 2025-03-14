@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow"> <!-- Ini akan terlihat seperti upaya untuk menyembunyikan halaman dari mesin pencari, tapi sebenarnya masih bisa di-dork -->
+    <title>INTERNAL: Database Pegawai KEPIN - JANGAN DIBAGIKAN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            background-color: #006400; /* Warna hijau untuk Kementerian Pertanian */
+            color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .internal-tag {
+            background-color: #ff0000;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .warning-banner {
+            background-color: #fff4e5;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .search-box {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #e8f4fb;
+            border-radius: 4px;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        .search-box button {
+            background-color: #006400;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+        }
+        .last-update {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .action-buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .action-button {
+            padding: 8px 15px;
+            background-color: #006400;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+        }
+        .export-button {
+            background-color: #1a5276;
+        }
+        .print-button {
+            background-color: #117a65;
+        }
+        .login-info {
+            font-size: 12px;
+            color: #666;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">SISTEM INFORMASI KEPEGAWAIAN - KEPIN</div>
+            <div class="internal-tag">INTERNAL ONLY</div>
+        </div>
+        
+        <div class="login-info">
+            Login sebagai: admin@kepin.go.id | Sesi akan berakhir dalam: 28:45
+        </div>
+        
+        <div class="warning-banner">
+            <strong>PERINGATAN:</strong> Informasi ini bersifat rahasia dan hanya untuk penggunaan internal. Dilarang keras membagikan data ini kepada pihak yang tidak berwenang.
+        </div>
+        
+        <div class="search-box">
+            <h3>Pencarian Data Pegawai</h3>
+            <input type="text" id="searchInput" placeholder="Cari berdasarkan nama, email, atau unit kerja...">
+            <button onclick="searchTable()">Cari</button>
+        </div>
+        
+        <h2>DAFTAR PEGAWAI KEMENTRIAN PERTANIAN INDONESIA (KEPIN)</h2>
+        
+        <table id="employeeTable">
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Unit Kerja</th>
+                    <th>Jabatan</th>
+                    <th>Nomor Telepon</th>
+                    <th>Alamat</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Yohanes William</td>
+                    <td>yohanes.sinaga@kepin.go.id</td>
+                    <td>Direktorat Keamanan Informasi</td>
+                    <td>Kepala Unit Keamanan</td>
+                    <td>+62 812 3456 7890</td>
+                    <td>Jl. Cyber No. 12, Jakarta Selatan, Indonesia</td>
+                </tr>
+                <tr>
+                    <td>Andi Prasetyo</td>
+                    <td>andi.prasetyo@kepin.go.id</td>
+                    <td>Departemen Analisis Keamanan</td>
+                    <td>Analis Keamanan Siber</td>
+                    <td>+62 813 1234 5678</td>
+                    <td>Jl. Teknologi No. 8, Jakarta Pusat, Indonesia</td>
+                </tr>
+                <tr>
+                    <td>Maria Lestari</td>
+                    <td>maria.lestari@kepin.go.id</td>
+                    <td>Direktorat Keamanan Jaringan</td>
+                    <td>Manajer Keamanan Jaringan</td>
+                    <td>+62 812 9876 5432</td>
+                    <td>Jl. Sains No. 5, Bandung, Indonesia</td>
+                </tr>
+                <tr>
+                    <td>Budi Santoso</td>
+                    <td>budi.santoso@kepin.go.id</td>
+                    <td>Bidang Pengelolaan Risiko</td>
+                    <td>Manajer Risiko dan Keamanan</td>
+                    <td>+62 821 5556 7890</td>
+                    <td>Jl. Risikon No. 7, Yogyakarta, Indonesia</td>
+                </tr>
+                <tr>
+                    <td>Tania Dewi</td>
+                    <td>tania.dewi@kepin.go.id</td>
+                    <td>Divisi Pemulihan Insiden</td>
+                    <td>Spesialis Pemulihan Keamanan</td>
+                    <td>+62 813 6667 8901</td>
+                    <td>Jl. Pemulihan No. 6, Surabaya, Indonesia</td>
+                </tr>
+                <tr>
+                    <td>Rudi Hartono</td>
+                    <td>rudi.hartono@kepin.go.id</td>
+                    <td>Direktorat Teknologi dan Infrastruktur</td>
+                    <td>Kepala Divisi Infrastruktur IT</td>
+                    <td>+62 812 2345 6789</td>
+                    <td>Jl. Infrastruktur No. 10, Medan, Indonesia</td>
+                </tr>
+                <tr>
+                    <td>Siti Rahmawati</td>
+                    <td>siti.rahmawati@kepin.go.id</td>
+                    <td>Departemen Keamanan Sistem</td>
+                    <td>Teknisi Keamanan Sistem</td>
+                    <td>+62 812 9876 1122</td>
+                    <td>Jl. Keamanan No. 14, Bali, Indonesia</td>
+                </tr>
+                <tr>
+                    <td>Indra Prabowo</td>
+                    <td>indra.prabowo@kepin.go.id</td>
+                    <td>Divisi Pengawasan Keamanan</td>
+                    <td>Pengawas Keamanan IT</td>
+                    <td>+62 813 2345 6789</td>
+                    <td>Jl. Pengawasan No. 3, Semarang, Indonesia</td>
+                </tr>
+                <tr>
+                    <td>Dedi Setiawan</td>
+                    <td>dedi.setiawan@kepin.go.id</td>
+                    <td>Bidang Teknologi Informasi</td>
+                    <td>Teknisi Jaringan dan Infrastruktur</td>
+                    <td>+62 821 1234 5678</td>
+                    <td>Jl. Teknologi No. 13, Bekasi, Indonesia</td>
+                </tr>
+                <tr>
+                    <td>Rina Amalia</td>
+                    <td>rina.amalia@kepin.go.id</td>
+                    <td>Departemen Pengendalian Keamanan</td>
+                    <td>Koordinator Pengendalian Keamanan</td>
+                    <td>+62 813 4455 6789</td>
+                    <td>Jl. Pengendalian No. 9, Tangerang, Indonesia</td>
+                </tr>
+                <tr>
+                    <td>Fajar Nugroho</td>
+                    <td>fajar.nugroho@kepin.go.id</td>
+                    <td>Direktorat Keamanan Data</td>
+                    <td>Kepala Bidang Keamanan Data</td>
+                    <td>+62 822 3344 5566</td>
+                    <td>Jl. Keamanan Data No. 16, Surakarta, Indonesia</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="action-buttons">
+            <a href="Daftar-Pegawai-Kepin.csv" download class="action-button export-button">Export ke CSV</a>
+            <button class="action-button print-button" onclick="window.print()">Cetak Daftar</button>
+        </div>
+        
+        <div class="footer">
+            <div class="last-update">Terakhir diperbarui: 15 Maret 2025, 14:30 WIB</div>
+            <p>Sistem Informasi Kepegawaian - Kementrian Pertanian Indonesia (KEPIN)</p>
+            <p>© 2025 Kementrian Pertanian Indonesia - Semua Hak Dilindungi</p>
+            <p>Versi Sistem: 2.5.7 | Database: KEPIN-DB-PROD-2025</p>
+        </div>
+    </div>
+    
+    <script>
+        function searchTable() {
+            var input, filter, table, tr, td, i, j, txtValue, found;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("employeeTable");
+            tr = table.getElementsByTagName("tr");
+            
+            for (i = 1; i < tr.length; i++) { // Start from 1 to skip header row
+                found = false;
+                td = tr[i].getElementsByTagName("td");
+                
+                for (j = 0; j < td.length; j++) {
+                    if (td[j]) {
+                        txtValue = td[j].textContent || td[j].innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+                
+                if (found) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+        
+        // Tambahkan beberapa metadata yang akan membantu untuk dorking
+        document.head.innerHTML += '<meta name="description" content="Database Pegawai Kementrian Pertanian Indonesia (KEPIN) - Sistem Informasi Internal">';
+        document.head.innerHTML += '<meta name="keywords" content="database, pegawai, KEPIN, kementrian pertanian, internal, rahasia, daftar pegawai">';
+    </script>
+</body>
+</html> 
